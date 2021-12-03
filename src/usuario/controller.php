@@ -8,7 +8,7 @@
             $json = file_get_contents("php://input");
             $dadosUsuario = json_decode($json, true);
 
-            $this->_modelUsuario = $model;
+            $this->_modelUsuario = $modelUsuario;
             $this->metodo = $_REQUEST['REQUEST_METHOD'];
             $this->_idusuario = $dadosUsuario->idusuario ?? null;
         }

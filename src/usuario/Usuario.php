@@ -22,8 +22,11 @@
         public function create() {
             $sql = "INSERT INTO tblusuario (nome, email, dataNascimento, senha) VALUES (?, ?, ?, ?);";
             $declaracao = $this->_conexao->prepare($sql);
-            $declaracao->bindParam(1, $this->_)
-
+            $declaracao->bindvalue(1, $this->_nome);
+            $declaracao->bindValue(2, $this->_senha);
+            $declaracao->bindValue(3, $this->_email);
+            $declaracao->bindValue(4, $this->_dataNascimento);
+            
             if ( $declaracao->execute() ) {
                 return "Success";
             } else {
@@ -40,22 +43,22 @@
         }
 
         public function readID() {
-            $sql = "SELECT * FROM tblusuario WHERE idusuario = $this->_idusuario;";
+            $sql = "SELECT * FROM tblusuario WHERE idusuario = ?;";
             $declaracao = $this->_conexao->prepare($sql);
+            $declaracao->bindValue(1, $this->_idusuario);
             $declaracao->execute();
 
             return $declaracao->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         public function update() {
-            $sql = "UPDATE tblusuario SET 
-                nome = $this->_nome,
-                senha = $this->_senha,
-                email = $this->_email,
-                dataNascimento = $this->dataNascimento
-                WHERE idusuario = $this->_idusuario
-            ;";
+            $sql = "UPDATE tblusuario SET nome = ?, senha = ?, email = ?, dataNascimento = ? WHERE idusuario = ?;";
             $declaracao = $this->_conexao->prepare($sql);
+            $declaracao->bindvalue(1, $this->_nome);
+            $declaracao->bindValue(2, $this->_senha);
+            $declaracao->bindValue(3, $this->_email);
+            $declaracao->bindValue(4, $this->_dataNascimento);
+            $declaracao->bindValue(5, $this->_idusuario);
             
             if ( $declaracao->execute() ) {
                 return "Success";
@@ -65,8 +68,9 @@
         }
 
         public function delete() {
-            $sql = "DELETE FROM tblusuario WHERE idusuario = $this->idusuario";
+            $sql = "DELETE FROM tblusuario WHERE idusuario = ?";
             $declaracao = $this->_conexao->prepare($sql);
+            $declaracao->bindValue(1, $this->_idusuario);
             
             if ( $declaracao->execute() ) {
                 return "Success";

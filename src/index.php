@@ -10,6 +10,7 @@
 
     $conexao = new Connection();
     $modelUsuario = new Usuario($conexao->conectar());
+    $controller = new UsuarioController($modelUsuario);
 
     $dump = var_dump($modelUsuario->create());
     echo('<pre>'.$dump.'</pre>');
