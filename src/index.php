@@ -12,6 +12,7 @@
     $modelUsuario = new Usuario($conexao->conectar());
     $controller = new UsuarioController($modelUsuario);
 
-    $dump = var_dump($modelUsuario->create());
+    $controller->router();
+    
     echo('<pre>'.$dump.'</pre>');
 ?>

@@ -22,8 +22,10 @@
                 case 'GET':
                     if (isset($this->_idusuario)) {
                         return $this->modelUsuario->readID();
+                    } 
+                    else {
+                        return $this->modelUsuario->read();
                     }
-                    return $this->modelUsuario->read();
                 break;
                         
                 case 'PUT':
