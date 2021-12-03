@@ -8,7 +8,7 @@
 
         public function __construct() {
             try {
-                $this->_conn = new PDO("mysql:host = $this->_dbHostName; dbname = $this->_dbName;", $this->_userName, $this->_dbPassword);
+                $this->_conn = new PDO("mysql:host=$this->_dbHostName;dbname=$this->_dbName;", $this->_userName, $this->_dbPassword);
                 $this->_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
             catch( PDOException $error ) {
@@ -16,7 +16,7 @@
             }
         }
 
-        public function returnConnection() {
+        public function conectar() {
             return $this->_conn;
         }
     }
