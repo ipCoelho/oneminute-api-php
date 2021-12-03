@@ -20,7 +20,7 @@
         }
 
         public function create() {
-            $sql = "INSERT INTO tblusuario (nome, email, dataNascimento, senha) VALUES (?, ?, ?, ?);";
+            $sql = "INSERT INTO tblusuario (nome, senha, email, dataNascimento) VALUES (?, ?, ?, ?);";
             $declaracao = $this->_conexao->prepare($sql);
             $declaracao->bindvalue(1, $this->_nome);
             $declaracao->bindValue(2, $this->_senha);

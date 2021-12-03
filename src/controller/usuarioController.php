@@ -9,31 +9,31 @@
             $dadosUsuario = json_decode($json, true);
 
             $this->_modelUsuario = $modelUsuario;
-            $this->metodo = $_REQUEST['REQUEST_METHOD'];
+            $this->_metodo = $_SERVER['REQUEST_METHOD'];
             $this->_idusuario = $dadosUsuario->idusuario ?? null;
         }
 
         function router() {
             switch ($this->_metodo) {
                 case 'POST':
-                    return $this->modelUsuario->create();
+                    return $this->_modelUsuario->create();
                 break;
 
                 case 'GET':
                     if (isset($this->_idusuario)) {
-                        return $this->modelUsuario->readID();
+                        return $this->_modelUsuario->readID();
                     } 
                     else {
-                        return $this->modelUsuario->read();
+                        return $this->_modelUsuario->read();
                     }
                 break;
                         
                 case 'PUT':
-                    return $this->modelUsuario->update();
+                    return $this->_modelUsuario->update();
                 break;
     
                 case 'DELETE':
-                    return $this->modelUsuario->delete();
+                    return $this->_modelUsuario->delete();
                 break;
                         
                 default: break;
