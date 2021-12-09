@@ -36,7 +36,9 @@
                     return $this->_modelUsuario->delete();
                 break;
                         
-                default: break;
+                default: 
+                    return "ERROR_NO_RESQUEST_METHOD";
+                break;
             }
         }
 

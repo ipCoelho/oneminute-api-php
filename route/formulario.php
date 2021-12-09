@@ -16,17 +16,17 @@
 
     switch ($dbResponse) {
         case true:
-            http_response_code(201);
+            http_response_code(200);
             $dbReponse = array("Response: " => "Success");
         break;
         
         case false:
-            http_response_code(202);
+            http_response_code(200);
             $dbReponse = array("Response: " => "Error");
         default:
 
         case !is_bool($dbReponse):
-            http_response_code(203);
+            http_response_code(200);
             $dbReponse = array( "Response: " => $dbReponse );
         break;
     }
