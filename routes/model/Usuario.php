@@ -17,6 +17,7 @@
             $this->_email = $dadosUsuario->email ?? null;
             $this->_dataNascimento = $dadosUsuario->dataNascimento ?? null;
             $this->_conexao = $conexao;
+
         }
 
         public function create() {
@@ -43,7 +44,7 @@
         }
 
         public function readID() {
-            $sql = "SELECT * FROM tblusuario WHERE idusuario = ?;";
+            $sql = "SELECT * FROM tblusuario WHERE idUsuario = ?;";
             $declaracao = $this->_conexao->prepare($sql);
             $declaracao->bindValue(1, $this->_idusuario);
             $declaracao->execute();
@@ -60,11 +61,7 @@
             $declaracao->bindValue(4, $this->_dataNascimento);
             $declaracao->bindValue(5, $this->_idusuario);
             
-            if ( $declaracao->execute() ) {
-                return "Success";
-            } else {
-                return "Error";
-            }
+            $declaracao->execute()? true : false;
         }
 
         public function delete() {
@@ -72,11 +69,7 @@
             $declaracao = $this->_conexao->prepare($sql);
             $declaracao->bindValue(1, $this->_idusuario);
             
-            if ( $declaracao->execute() ) {
-                return "Success";
-            } else {
-                return "Error";
-            }
+            $declaracao->execute()? true : false;
         }
     }
 ?>

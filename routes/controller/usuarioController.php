@@ -6,7 +6,7 @@
 
         public function __construct($modelUsuario) {
             $json = file_get_contents("php://input");
-            $dadosUsuario = json_decode($json, true);
+            $dadosUsuario = json_decode($json);
 
             $this->_modelUsuario = $modelUsuario;
             $this->_metodo = $_SERVER['REQUEST_METHOD'];
@@ -20,7 +20,7 @@
                 break;
 
                 case 'GET':
-                    if (isset($this->_idusuario)) {
+                    if ($this->_idusuario != null || $this->_idusuario != 0) {
                         return $this->_modelUsuario->readID();
                     } 
                     else {
