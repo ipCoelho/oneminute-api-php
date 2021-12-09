@@ -23,11 +23,11 @@
         case false:
             http_response_code(200);
             $dbReponse = array("Response: " => "Error");
-        default:
-
+        break;
+        
         case !is_bool($dbReponse):
             http_response_code(200);
-            $dbReponse = array( "Response: " => $dbReponse );
+            $dbReponse = array($dbReponse);
         break;
     }
 
