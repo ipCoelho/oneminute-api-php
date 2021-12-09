@@ -28,7 +28,7 @@
             $declaracao->bindValue(3, $this->_email);
             $declaracao->bindValue(4, $this->_dataNascimento);
             
-            $declaracao->execute()? true : false;
+            return $declaracao->execute();
         }
 
         public function read() {
@@ -57,7 +57,7 @@
             $declaracao->bindValue(4, $this->_dataNascimento);
             $declaracao->bindValue(5, $this->_idusuario);
             
-            $declaracao->execute()? true : false;
+            return $declaracao->execute();
         }
 
         public function delete() {
