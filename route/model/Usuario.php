@@ -65,7 +65,7 @@
             $declaracao = $this->_conexao->prepare($sql);
             $declaracao->bindValue(1, $this->_idusuario);
             
-            $declaracao->execute()? true : false;
+            return $declaracao->execute();
         }
     }
 ?>
