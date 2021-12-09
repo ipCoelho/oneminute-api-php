@@ -28,11 +28,7 @@
             $declaracao->bindValue(3, $this->_email);
             $declaracao->bindValue(4, $this->_dataNascimento);
             
-            if ( $declaracao->execute() ) {
-                return "Success";
-            } else {
-                return "Error";
-            }
+            $declaracao->execute()? true : false;
         }
 
         public function read() {

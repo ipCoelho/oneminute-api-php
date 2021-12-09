@@ -17,7 +17,7 @@
     switch ($dbResponse) {
         case true:
             http_response_code(201);
-            $dbReponse = array("Response: " => "Sucess");
+            $dbReponse = array("Response: " => "Success");
         break;
         
         case false:
