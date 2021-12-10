@@ -1,7 +1,8 @@
 <?php
     class Connection{
         private $_dbHostName = "127.0.0.1";
-        private $_dbName = "db_oneminute";
+        // private $_dbName = "db_oneminute";
+        private $_dbName = "db_finaloneminute";
         private $_userName = "root";
         private $_dbPassword = "bcd127";
         private $_conn;
